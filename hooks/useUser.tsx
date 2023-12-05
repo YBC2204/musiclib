@@ -37,17 +37,24 @@ const getSubscription = () => null; // No need for subscription logic
 useEffect(() => {
   if (user && !isLoadingData && !userDetails) {
     setIsloadingData(true);
-    getUserDetails()
-      .then((userDetailsData) => {
-        setUserDetails(userDetailsData.data as UserDetails);
-      })
-      .finally(() => {
-        setIsloadingData(false);
-      });
-  } else if (!user && !isLoadingUser && !isLoadingData) {
-    setUserDetails(null);
-  }
-}, [user, isLoadingUser]);
+    Promise.allSettled([getUserDetails(), getSubscription()]).then(
+        (results) => {
+          const userDetailsPromise = results[0];
+          
+
+          if (userDetailsPromise.status === 'fulfilled')
+            setUserDetails(userDetailsPromise.value.data as UserDetails);
+
+          
+
+          setIsloadingData(false);
+        }
+      );
+    } else if (!user && !isLoadingUser && !isLoadingData) {
+      setUserDetails(null);
+      
+    }
+  }, [user, isLoadingUser]);
 
 const value = {
   accessToken,
