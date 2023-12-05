@@ -33,7 +33,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
         disabled:opacity-50
         focus:outline-none
       `,
-        disabled && 'opacity-75',
         className
       )}
       disabled={disabled}
