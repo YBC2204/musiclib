@@ -111,7 +111,7 @@ const Header:React.FC<Headerprops> = ({children,className}) => {
              Logout
            </Button>
            <Button 
-           onClick={() => router.push('/account')} 
+            
            className="bg-black"
          >
            <FaUserAlt />
