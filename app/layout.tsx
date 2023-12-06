@@ -8,6 +8,8 @@ import ModalProvider from '@/providers/ModalProvider'
 import getSongsByUserId from '@/actions/getSongsByUserId'
 import Player from '@/components/Player'
 
+
+
 const font = Figtree({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
