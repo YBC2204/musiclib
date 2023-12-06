@@ -32,6 +32,7 @@ const ListItem: React.FC<ListProps>= ({image,name,href}) => {
           transition 
           pr-4
           min-w-[250px]
+          max-w-[300px]
         "
       >
         <div className="relative min-h-[64px] min-w-[64px] ">
